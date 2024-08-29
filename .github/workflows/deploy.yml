@@ -21,7 +21,7 @@ jobs:
 
 
       - name: Set up Google Cloud credentials         
-        run: echo "{"+"${{ secrets.GOOGLE_CREDENTIALS }}"+"\n}" > "${HOME}/gcloud.json"
+        run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > "${HOME}/gcloud.json"
           
       
       - name: Validate Google Cloud credentials file
