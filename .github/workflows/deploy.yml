@@ -19,6 +19,14 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Set up Google Cloud credentials
+        run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" > "${HOME}/gcloud.json"
+
+      - name: Authenticate to Google Cloud
+        run: |
+          gcloud auth activate-service-account --key-file="${HOME}/gcloud.json"
+          gcloud config set project YOUR_PROJECT_ID
+
       - name: Install dependencies
         run: |
           cd function
