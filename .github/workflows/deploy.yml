@@ -56,7 +56,9 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init
+        run: |
+          echo "GOOGLE_APPLICATION_CREDENTIALS-->$GOOGLE_APPLICATION_CREDENTIALS"
+          terraform init
         working-directory: terraform
 
       - name: Terraform validate
