@@ -26,7 +26,8 @@ jobs:
 
       - name: Test API
         run: |
-          python -m unittest discover -s function/tests
+          cd function/tests
+          python -m unittest discover
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
