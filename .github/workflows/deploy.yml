@@ -30,8 +30,7 @@ jobs:
 
 
       - name: Authenticate to Google Cloud
-        run: |
-        
+        run: |        
           gcloud auth activate-service-account primary1@berrysafetest-15c25.iam.gserviceaccount.com --key-file "${HOME}/gcloud.json"
           echo "${{ GOOGLE_PROJECT }}" | base64 -d
           echo echo "${{ GOOGLE_PROJECT }}" | base64 -d | gcloud config set project $1
