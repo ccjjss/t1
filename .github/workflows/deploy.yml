@@ -22,7 +22,7 @@ jobs:
 
       - name: Set up Google Cloud credentials
         run: |
-          echo "${{ secrets.GOOGLE_CREDENTIALS }}" | sed 's/\\n/\
+          echo -e "${{ secrets.GOOGLE_CREDENTIALS }}" | sed 's/\\n/\
           /g' > "${HOME}/gcloud.json"
       
       - name: Validate Google Cloud credentials file
