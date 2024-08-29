@@ -31,8 +31,9 @@ jobs:
 
       - name: Authenticate to Google Cloud
         run: |
-          gcloud auth activate-service-account primary1@berrysafetest-15c25.iam.gserviceaccount.com --key-file="${HOME}/gcloud.json"
-          gcloud config set project YOUR_PROJECT_ID
+        
+          gcloud auth activate-service-account primary1@berrysafetest-15c25.iam.gserviceaccount.com --key-file "${HOME}/gcloud.json"
+          gcloud config set project ${{ vars.GOOGLE_PROJECT }}
 
       - name: Install dependencies
         run: |
