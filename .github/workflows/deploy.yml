@@ -58,6 +58,10 @@ jobs:
         run: terraform init
         working-directory: terraform
 
+      - name: Terraform validate
+        run: terraform validate
+        working-directory: terraform
+
       - name: Terraform Apply
         run: terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}"
         working-directory: terraform
