@@ -34,6 +34,9 @@ jobs:
           CLOUDSDK_CORE_PROJECT: "berrysafetest-15c25"      
         run: |        
           gcloud auth activate-service-account primary1@berrysafetest-15c25.iam.gserviceaccount.com --key-file "${HOME}/gcloud.json"
+          echo "CLOUDSDK-->"+"${{ CLOUDSDK_CORE_PROJECT }}"
+          echo "GOOGLE_PROJECT-->"+"${{ secrets.GOOGLE_PROJECT }}"          
+          
           gcloud config set project 
 
       - name: Install dependencies
