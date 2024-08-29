@@ -21,9 +21,10 @@ jobs:
 
 
       - name: Set up Google Cloud credentials
+        env:
+          ENV_FILE: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
-          echo -e "${{ secrets.GOOGLE_CREDENTIALS }}" | sed 's/\\n/\
-          /g' > "${HOME}/gcloud.json"
+          echo -e "$ENV_FILE" > "${HOME}/gcloud.json"
       
       - name: Validate Google Cloud credentials file
         run: |
