@@ -31,11 +31,11 @@ jobs:
 
       - name: Authenticate to Google Cloud
         env:
-          CLOUDSDK_CORE_PROJECT: "${{ secrets.GOOGLE_PROJECT }}"
+          CLOUDSDK_CORE_PROJECT: "${{ variables.GOOGLE_PROJECT }}"
         run: |        
           gcloud auth activate-service-account primary1@berrysafetest-15c25.iam.gserviceaccount.com --key-file "${HOME}/gcloud.json"
           echo "CLOUDSDK-->"+"$CLOUDSDK_CORE_PROJECT"
-          echo "GOOGLE_PROJECT-->"+"${{ secrets.GOOGLE_PROJECT }}"
+          echo "GOOGLE_PROJECT-->"+"${{ variables.GOOGLE_PROJECT }}"
           
           gcloud config set project 
 
