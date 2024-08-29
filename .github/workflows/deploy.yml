@@ -38,9 +38,6 @@ jobs:
           gsutil ls
           terraform version                    
 
-      - name: Set GOOGLE_APPLICATION_CREDENTIALS environment variable
-        run: echo "GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud.json" >> $GITHUB_ENV
-
 
       - name: Install dependencies
         run: |
@@ -56,19 +53,19 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init -var="project_id=${{ vars.GOOGLE_PROJECT }}"
-        working-directory: terraform
+        run: terraform init
+//        working-directory: terraform
 
       - name: Terraform validate
         run: terraform validate
-        working-directory: terraform
+//        working-directory: terraform
 
       - name: Terraform Apply
         run: |
-          echo "GOOGLE_APPLICATION_CREDENTIALS-->$GOOGLE_APPLICATION_CREDENTIALS"
+//          echo "GOOGLE_APPLICATION_CREDENTIALS-->$GOOGLE_APPLICATION_CREDENTIALS"
           terraform plan -var="project_id=${{ vars.GOOGLE_PROJECT }}"
           terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}"
-        working-directory: terraform
+//        working-directory: terraform
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
