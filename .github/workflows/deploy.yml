@@ -36,6 +36,7 @@ jobs:
           gcloud auth activate-service-account primary1@berrysafetest-15c25.iam.gserviceaccount.com --key-file "${HOME}/gcloud.json"         
           gcloud config set project "${{ vars.GOOGLE_PROJECT }}"
           gsutil ls
+          terraform version                    
 
       - name: Set GOOGLE_APPLICATION_CREDENTIALS environment variable
         run: echo "GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud.json" >> $GITHUB_ENV
