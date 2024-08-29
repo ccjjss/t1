@@ -19,9 +19,12 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Set up Google Cloud credentials
-        run: echo -e "${{ secrets.GOOGLE_CREDENTIALS }}" > "${HOME}/gcloud.json"
 
+      - name: Set up Google Cloud credentials
+        run: |
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" | sed 's/\\n/\
+          /g' > "${HOME}/gcloud.json"
+      
       - name: Validate Google Cloud credentials file
         run: |
           cat "${HOME}/gcloud.json"
