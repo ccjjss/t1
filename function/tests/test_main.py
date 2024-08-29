@@ -1,5 +1,11 @@
 import unittest
-from main import get_data
+import sys
+import os
+
+# Agrega el directorio 'function' al PYTHONPATH
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from main import get_data  # Importa la función desde main.py
 
 class TestAPI(unittest.TestCase):
 
