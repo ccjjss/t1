@@ -26,17 +26,15 @@ jobs:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
           
       
-      - name: Validate Google Cloud credentials file
-        run: |
-          cat "${HOME}/gcloud.json"
+#      - name: Validate Google Cloud credentials file
+#        run: |
+#          cat "${HOME}/gcloud.json"
 
 
       - name: Authenticate to Google Cloud
         run: |        
           gcloud auth activate-service-account primary1@berrysafetest-15c25.iam.gserviceaccount.com --key-file "${HOME}/gcloud.json"         
           gcloud config set project "${{ vars.GOOGLE_PROJECT }}"
-          gsutil ls
-          terraform version                    
 
       - name: Set GOOGLE_APPLICATION_CREDENTIALS environment variable
         run: |
@@ -56,7 +54,8 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init -get=true -force-copy -backend-config=backend.tfvars
+        run: terraform init 
+#        -get=true -force-copy -backend-config=backend.tfvars
         working-directory: terraform
 
       - name: Terraform validate
