@@ -2,6 +2,11 @@ resource "google_storage_bucket" "latam_function_bucket" {
   name          = var.bucket_name
   location      = var.location
   force_destroy = true
+
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes = all
+  }
 }
 
 resource "google_cloudfunctions_function" "latam_function" {
@@ -24,8 +29,4 @@ resource "google_storage_bucket_object" "function_zip" {
   source = "../function/function-source.zip"
 }
 
-  lifecycle {
-    prevent_destroy = true
-    ignore_changes = all
-  }
-}
+
