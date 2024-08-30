@@ -56,7 +56,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -get=true -force-copy -backend-config=backend.tfvars
 #        working-directory: terraform
 
       - name: Terraform validate
@@ -67,7 +67,7 @@ jobs:
         run: |
           echo "GOOGLE_APPLICATION_CREDENTIALS-->$GOOGLE_APPLICATION_CREDENTIALS"
           terraform plan -var="project_id=${{ vars.GOOGLE_PROJECT }}"
-          terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}"
+          terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}" -var-file=terraform.tfvars 
 #        working-directory: terraform
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
