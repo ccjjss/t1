@@ -29,7 +29,6 @@ jobs:
       - name: Validate Google Cloud credentials file
         run: |
           cat "${HOME}/gcloud.json"
-          cp  "${HOME}/gcloud.json" /home/runner/gcloud.json
 
 
       - name: Authenticate to Google Cloud
@@ -40,7 +39,9 @@ jobs:
           terraform version                    
 
       - name: Set GOOGLE_APPLICATION_CREDENTIALS environment variable
-        run: echo "GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud.json" >> $GITHUB_ENV
+        run: |
+          echo "GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud.json" >> $GITHUB_ENV
+          cat "${HOME}/gcloud.json"        
 
 
       - name: Install dependencies
