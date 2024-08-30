@@ -67,8 +67,8 @@ jobs:
 
       - name: Terraform Apply
         run: |
-          cat /home/runner/gcloud.json
-#          cat "${HOME}/gcloud.json"          
+#          cat /home/runner/gcloud.json
+          cat "${HOME}/gcloud.json"          
           terraform plan -var="project_id=${{ vars.GOOGLE_PROJECT }}"
           terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}" -var-file=terraform.tfvars 
         working-directory: terraform
