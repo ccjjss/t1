@@ -67,7 +67,6 @@ jobs:
 
       - name: Terraform Apply
         run: |
-#          echo "GOOGLE_APPLICATION_CREDENTIALS-->"+$GOOGLE_APPLICATION_CREDENTIALS
           cat /home/runner/gcloud.json
 #          cat "${HOME}/gcloud.json"          
           terraform plan -var="project_id=${{ vars.GOOGLE_PROJECT }}"
