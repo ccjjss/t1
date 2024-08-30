@@ -72,6 +72,7 @@ jobs:
           cat "${HOME}/gcloud.json"          
           echo "ID_PROJECT-->"+${{ vars.GOOGLE_PROJECT }}
           terraform plan -var="project_id=${{ vars.GOOGLE_PROJECT }}"
+          terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}"
 
 #      - name: Terraform Apply
 #        run: |
