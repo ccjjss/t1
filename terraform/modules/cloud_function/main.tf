@@ -3,10 +3,7 @@ resource "google_storage_bucket" "latam_function_bucket" {
   location      = var.location
   force_destroy = true
 
-  lifecycle {
-    prevent_destroy = true
-    ignore_changes = all
-  }
+
 }
 
 resource "google_cloudfunctions_function" "latam_function" {
