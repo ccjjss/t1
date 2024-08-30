@@ -29,6 +29,7 @@ jobs:
       - name: Validate Google Cloud credentials file
         run: |
           cat "${HOME}/gcloud.json"
+          cp  "${HOME}/gcloud.json" /home/runner/gcloud.json
 
 
       - name: Authenticate to Google Cloud
