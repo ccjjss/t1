@@ -41,8 +41,6 @@ jobs:
       - name: Set GOOGLE_APPLICATION_CREDENTIALS environment variable
         run: |
           echo "GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcloud.json" >> $GITHUB_ENV
-          cat "${HOME}/gcloud.json"        
-
 
       - name: Install dependencies
         run: |
@@ -62,7 +60,9 @@ jobs:
         working-directory: terraform
 
       - name: Terraform validate
-        run: terraform validate
+        run: | 
+          terraform validate
+          cat "${HOME}/gcloud.json"
         working-directory: terraform
 
       - name: Terraform Apply
