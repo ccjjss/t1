@@ -61,14 +61,11 @@ jobs:
       - name: Terraform validate
         run: | 
           terraform validate
-          cat "${HOME}/gcloud.json"
         working-directory: terraform
 
       - name: Terraform Apply
         working-directory: terraform      
         run: |
-          cat /home/runner/gcloud.json
-          cat "${HOME}/gcloud.json"          
           echo "ID_PROJECT-->"+${{ vars.GOOGLE_PROJECT }}
           terraform plan -var="project_id=${{ vars.GOOGLE_PROJECT }}"
           terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}" || echo "Warning: Resource already exists, continuing..."
