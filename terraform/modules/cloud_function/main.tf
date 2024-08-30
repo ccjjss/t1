@@ -24,3 +24,8 @@ resource "google_storage_bucket_object" "function_zip" {
   source = "../function/function-source.zip"
 }
 
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes = all
+  }
+}
