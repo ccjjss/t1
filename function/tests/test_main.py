@@ -2,7 +2,7 @@ from flask import Flask
 import unittest
 import sys
 import os
-from ..main import get_data
+from main import get_data
 
 
 
