@@ -14,7 +14,7 @@ resource "google_cloudfunctions_function" "function_pubsub" {
 #  source_directory = var.source_directory
 
 
-  trigger_topic = google_pubsub_topic.topic.name
+#  trigger_topic = google_pubsub_topic.topic.name
 
   available_memory_mb   = 128
   timeout               = 60
@@ -23,6 +23,11 @@ resource "google_cloudfunctions_function" "function_pubsub" {
   environment_variables = {
     PROJECT_ID = var.project_id
   }
+  event_trigger {
+    event_type = "google.pubsub.topic.publish"
+    resource   = google_pubsub_topic.topic.id
+  }  
+  
 }
 
 resource "google_storage_bucket_object" "function_zip" {
