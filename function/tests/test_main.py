@@ -1,19 +1,27 @@
+from flask import Flask
 import unittest
-import sys
-import os
-
-# Agrega el directorio 'function' al PYTHONPATH
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from main import get_data  # Importa la función desde main.py
+from main import get_data
 
 class TestAPI(unittest.TestCase):
+    def setUp(self):
+        self.app = Flask(__name__)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        self.client = self.app.test_client()
+
+    def tearDown(self):
+        self.app_context.pop()
 
     def test_get_data(self):
-        request = None  # Simula una solicitud, ajusta según sea necesario
-        response = get_data(request)
-        self.assertIsInstance(response, dict)
-        self.assertIn("data", response)
+        with self.app.test_request_context(json={
+            "data": {
+                "id": "123",
+                "name": "Test Data",
+                "value": 12.3
+            }
+        }):
+            response = get_data()
+            self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
     unittest.main()
