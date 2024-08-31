@@ -8,6 +8,11 @@ variable "bucket_name" {
   type        = string
 }
 
+variable "entry_point" {
+  description = "Entry point for the Cloud Function"
+  type        = string
+}
+
 variable "function_name" {
   description = "Name of the Cloud Function"
   type        = string
@@ -23,8 +28,8 @@ variable "pubsub_topic" {
   type        = string
 }
 
-variable "service_account_email" {
-  description = "Service account email to run the function"
-  type        = string
-}
+#variable "service_account_email" {
+#  description = "Service account email to run the function"
+#  type        = string
+#}
 
