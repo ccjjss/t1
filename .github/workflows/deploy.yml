@@ -73,3 +73,12 @@ jobs:
           terraform apply -auto-approve -var="project_id=${{ vars.GOOGLE_PROJECT }}" || echo "Warning: Resource already exists, continuing..."
 
 
+      - name: Deploy Cloud Function
+        run: |
+          gcloud functions deploy process_pubsub_message \
+            --runtime python310 \
+            --trigger-topic latam-ingesta-topic \
+            --source ./cloud_function_pubsub \
+            --entry-point process_pubsub_message
+
+

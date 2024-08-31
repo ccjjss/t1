@@ -106,7 +106,8 @@ Las pruebas unitarias están ubicadas en `function/test/test_main.py` y se encar
 
 ### Ejecutar Pruebas:
 Las pruebas se pueden ejecutar manualmente con el siguiente comando:
-```python -m unittest discover function/test```
+```python -m unittest discover function/test
+```
 
 Estas pruebas también se ejecutan automáticamente durante el pipeline CI/CD configurado en GitHub Actions.
 
