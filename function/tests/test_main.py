@@ -1,6 +1,8 @@
 from flask import Flask
 import unittest
-from function.main import get_data
+import sys
+import os
+from main import get_data
 
 
 class TestAPI(unittest.TestCase):
