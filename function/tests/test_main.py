@@ -20,7 +20,7 @@ class TestAPI(unittest.TestCase):
                 "value": 12.3
             }
         }):
-            response, status_code = publish_data()
+            response, status_code = publish_data(request)
             self.assertEqual(status_code, 200)
 
     def test_insert_data(self):
@@ -31,7 +31,7 @@ class TestAPI(unittest.TestCase):
                 "value": 12.3
             }
         }):
-            response, status_code = insert_data()
+            response, status_code = insert_data(request)
             self.assertEqual(status_code, 200)
 
 if __name__ == '__main__':
