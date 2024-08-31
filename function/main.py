@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# Configura tu cliente de BigQuery
+# Configura cliente de BigQuery
 client = bigquery.Client(project="berrysafetest-15c25")
 
 # Nombre del dataset y tabla en BigQuery
