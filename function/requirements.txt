@@ -1,4 +1,6 @@
 google-cloud-bigquery==3.2.0
 pyarrow==6.0.1
 numpy==1.21.4
+Flask==2.0.1
+Werkzeug==2.0.1
 

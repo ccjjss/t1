@@ -19,6 +19,11 @@ variable "schema" {
       "mode": "REQUIRED"
     },
     {
+      "name": "data_name",
+      "type": "STRING",
+      "mode": "REQUIRED"
+    },    
+    {
       "name": "data_value",
       "type": "FLOAT",
       "mode": "NULLABLE"
