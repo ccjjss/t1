@@ -25,4 +25,13 @@ module "cloud_function" {
   bigquery_project = var.project_id
 }
 
+module "cloud_function_pubsub" {
+  source = "./modules/cloud_function_pubsub"
+
+  project_id            = var.project_id
+  function_name         = "process-pubsub-function"
+  source_directory      = "${path.module}/../cloud_function_pubsub"
+  pubsub_topic          = "latam-ingesta-topic"
+  service_account_email = "primary1@berrysafetest-15c25.iam.gserviceaccount.com"
+}
 
