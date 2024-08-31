@@ -28,6 +28,12 @@ variable "pubsub_topic" {
   type        = string
 }
 
+variable "location" {
+  description = "Location for GCP resources"
+  type        = string
+  default     = "US"
+}
+
 #variable "service_account_email" {
 #  description = "Service account email to run the function"
 #  type        = string
