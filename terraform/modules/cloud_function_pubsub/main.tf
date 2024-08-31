@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "process-pubsub-bucket" {
+resource "google_storage_bucket" "process_pubsub_bucket" {
   name          = var.bucket_name
   location      = var.location
   force_destroy = true
