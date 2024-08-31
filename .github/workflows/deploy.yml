@@ -19,6 +19,8 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Add function to PYTHONPATH
+        run: echo "PYTHONPATH=\$PYTHONPATH:$(pwd)/function" >> $GITHUB_ENV
 
       - name: Set up Google Cloud credentials         
         run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > "${HOME}/gcloud.json"
