@@ -1,10 +1,6 @@
 from flask import Flask
 import unittest
-import sys
-import os
-from main import get_data
-
-
+from function.main import get_data
 
 class TestAPI(unittest.TestCase):
     def setUp(self):
@@ -24,7 +20,7 @@ class TestAPI(unittest.TestCase):
                 "value": 12.3
             }
         }):
-            response = get_data()
+            response = get_data()  # Flask maneja 'request' automáticamente
             self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
