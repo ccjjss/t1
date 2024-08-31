@@ -1,6 +1,6 @@
 from flask import Flask, request
 import unittest
-from main import get_data
+from main import publish_data, insert_data
 
 class TestAPI(unittest.TestCase):
     def setUp(self):
@@ -12,7 +12,7 @@ class TestAPI(unittest.TestCase):
     def tearDown(self):
         self.app_context.pop()
 
-    def test_get_data(self):
+    def test_publish_data(self):
         with self.app.test_request_context(json={
             "data": {
                 "id": "123",
@@ -20,7 +20,18 @@ class TestAPI(unittest.TestCase):
                 "value": 12.3
             }
         }):
-            response, status_code = get_data(request)
+            response, status_code = publish_data()
+            self.assertEqual(status_code, 200)
+
+    def test_insert_data(self):
+        with self.app.test_request_context(json={
+            "data": {
+                "id": "123",
+                "name": "Test Data",
+                "value": 12.3
+            }
+        }):
+            response, status_code = insert_data()
             self.assertEqual(status_code, 200)
 
 if __name__ == '__main__':
