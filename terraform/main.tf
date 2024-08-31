@@ -26,12 +26,15 @@ module "cloud_function" {
 }
 
 module "cloud_function_pubsub" {
-  source = "./modules/cloud_function_pubsub"
-
+  source          = "./modules/cloud_function_pubsub"
+  function_name   = var.process_pubsub_function_name
+  bucket_name     = var.bucket_process_pubsub_name
+  entry_point     = var.entry_point_process_pubsub
   project_id            = var.project_id
-  function_name         = "process-pubsub-function"
-  source_directory      = "${path.module}/../cloud_function_pubsub"
-  pubsub_topic          = "latam-ingesta-topic"
-  service_account_email = "primary1@berrysafetest-15c25.iam.gserviceaccount.com"
+  
+#  function_name         = "process-pubsub-function"
+#  source_directory      = "${path.module}/../cloud_function_pubsub"
+#  pubsub_topic          = "latam-ingesta-topic"
+#  service_account_email = "primary1@berrysafetest-15c25.iam.gserviceaccount.com"
 }
 

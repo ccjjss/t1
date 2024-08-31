@@ -2,8 +2,6 @@ resource "google_storage_bucket" "latam_function_bucket" {
   name          = var.bucket_name
   location      = var.location
   force_destroy = true
-
-
 }
 
 resource "google_cloudfunctions_function" "latam_function" {

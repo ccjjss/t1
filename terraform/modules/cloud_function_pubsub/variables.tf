@@ -3,15 +3,20 @@ variable "project_id" {
   type        = string
 }
 
+variable "bucket_name" {
+  description = "Name of the storage bucket for function"
+  type        = string
+}
+
 variable "function_name" {
   description = "Name of the Cloud Function"
   type        = string
 }
 
-variable "source_directory" {
-  description = "Path to the directory containing the function code"
-  type        = string
-}
+#variable "source_directory" {
+#  description = "Path to the directory containing the function code"
+#  type        = string
+#}
 
 variable "pubsub_topic" {
   description = "Name of the Pub/Sub topic"

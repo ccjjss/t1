@@ -33,16 +33,34 @@ variable "function_name" {
   default     = "latam-get-data-function"
 }
 
+variable "process_pubsub_function_name" {
+  description = "Name of the Cloud Function"
+  type        = string
+  default     = "process-pubsub-function"
+}
+
 variable "bucket_name" {
   description = "Name of the storage bucket for function"
   type        = string
   default     = "latam-functions-bucket"
 }
 
+variable "bucket_process_pubsub_name" {
+  description = "Name of the storage bucket for function"
+  type        = string
+  default     = "process-pubsub-bucket"
+}
+
 variable "entry_point" {
   description = "Entry point for the Cloud Function"
   type        = string
-  default     = "get_data"
+  default     = "publish_data"
+}
+
+variable "entry_point_process_pubsub" {
+  description = "Entry point for the Cloud Function"
+  type        = string
+  default     = "process_pubsub_message"
 }
 
 variable "runtime" {
