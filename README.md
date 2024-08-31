@@ -20,6 +20,11 @@ El proyecto está organizado de la siguiente manera:
   - `variables.tf`: Variables utilizadas en la configuración de Terraform.
   - `outputs.tf`: Define los outputs de la configuración de Terraform.
 
+- `cloud_function_pubsub/`: Contiene la configuración y el código fuente para la función en la nube que maneja mensajes de Pub/Sub.
+  - `main.py`: Código de la función que procesa mensajes.
+  - `requirements.txt`: Dependencias necesarias para ejecutar la función.
+  - `test/`: Pruebas unitarias para la función de Pub/Sub.
+
 - `.github/workflows/deploy.yml`: Configura un flujo de trabajo de GitHub Actions para automatizar el despliegue de la API y la infraestructura.
 
 ## Despliegue de la Infraestructura
@@ -134,4 +139,17 @@ Para visualizar y alertar sobre métricas se recomienda el uso de **Grafana**
 - Implementar pruebas de integración más complejas que involucren todo el flujo de datos.
 - Automatizar la configuración y monitoreo de las métricas.
 - Expandir la funcionalidad de la API para soportar operaciones de lectura y actualización.
+
+
+## Diagrama
+DEPLOY
+![diagrama1](./diagrama/01.png)
+
+INGESTA
+![diagrama1](./diagrama/02.png)
+
+
+
+
+
 
