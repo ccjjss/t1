@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import unittest
 from main import get_data
 
@@ -13,6 +13,7 @@ class TestAPI(unittest.TestCase):
         self.app_context.pop()
 
     def test_get_data(self):
+        # Simular un contexto de solicitud y obtener el objeto 'request'
         with self.app.test_request_context(json={
             "data": {
                 "id": "123",
@@ -20,7 +21,8 @@ class TestAPI(unittest.TestCase):
                 "value": 12.3
             }
         }):
-            response = get_data()  # Flask maneja 'request' automáticamente
+            # Pasar explícitamente el objeto 'request' a la función
+            response = get_data(request)
             self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
