@@ -1,6 +1,6 @@
 from flask import Flask
 import unittest
-from function.main import get_data
+from main import get_data
 
 class TestAPI(unittest.TestCase):
     def setUp(self):
