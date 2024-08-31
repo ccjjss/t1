@@ -142,10 +142,10 @@ Para visualizar y alertar sobre métricas se recomienda el uso de **Grafana**
 
 
 ## Diagrama
-DEPLOY
+### DEPLOY
 ![diagrama1](./diagrama/01.png)
 
-INGESTA
+### INGESTA
 ![diagrama1](./diagrama/02.png)
 
 
