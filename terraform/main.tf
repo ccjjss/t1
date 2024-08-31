@@ -30,7 +30,8 @@ module "cloud_function_pubsub" {
   function_name   = var.process_pubsub_function_name
   bucket_name     = var.bucket_process_pubsub_name
   entry_point     = var.entry_point_process_pubsub
-  project_id            = var.project_id
+  project_id      = var.project_id
+  pubsub_topic    = var.topic_name
   
 #  function_name         = "process-pubsub-function"
 #  source_directory      = "${path.module}/../cloud_function_pubsub"
