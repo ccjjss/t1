@@ -31,7 +31,7 @@ class TestAPI(unittest.TestCase):
                 "value": 12.3
             }
         }):
-            response, status_code = insert_data(request)
+            response, status_code = insert_data()
             self.assertEqual(status_code, 200)
 
 if __name__ == '__main__':
