@@ -11,7 +11,7 @@ client = bigquery.Client(project="berrysafetest-15c25")
 
 # Configura cliente de Pub/Sub
 project_id = "berrysafetest-15c25"
-topic_id = "data-ingesta-topic"
+topic_id = "latam-ingesta-topic"
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_id, topic_id)
 
