@@ -20,7 +20,7 @@ dataset_id = os.environ.get('BIGQUERY_DATASET', 'latam_analytics_dataset')
 table_id = os.environ.get('BIGQUERY_TABLE', 'latam_analytics_table')
 
 @app.route('/publish', methods=['POST'])
-def publish_data():
+def publish_data(request):
     try:
         # Capturar el JSON recibido
         data = request.get_json()

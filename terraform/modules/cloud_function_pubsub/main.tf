@@ -33,7 +33,7 @@ resource "google_cloudfunctions_function" "function_pubsub" {
 resource "google_storage_bucket_object" "function_zip" {
   name   = "function-source.zip"
   bucket = google_storage_bucket.process_pubsub_bucket.name
-  source = "../function/function-source.zip"
+  source = "../cloud_function_pubsub/function-source.zip"
 }
 
 resource "google_pubsub_topic" "topic" {
