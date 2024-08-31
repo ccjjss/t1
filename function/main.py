@@ -11,7 +11,7 @@ client = bigquery.Client(project="berrysafetest-15c25")
 
 # Configura cliente de Pub/Sub
 project_id = "berrysafetest-15c25"
-topic_id = "data-ingestion-topic"
+topic_id = "data-ingesta-topic"
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_id, topic_id)
 
@@ -50,7 +50,8 @@ def insert_data():
             return jsonify({"success": False, "error": "Invalid input data"}), 400
 
         # Crear un cliente de BigQuery
-        table_ref = client.dataset(dataset_id).table(table_id)
+        table_ref = f"{client.project}.{dataset_id}.{table_id}"
+
 
         # Preparar los datos a insertar
         rows_to_insert = [
