@@ -11,7 +11,7 @@ resource "google_cloudfunctions_function" "function_pubsub" {
   source_archive_bucket = google_storage_bucket.process_pubsub_bucket.name
   source_archive_object = google_storage_bucket_object.function_zip.name  
 
-  source_directory = var.source_directory
+#  source_directory = var.source_directory
 
 
   trigger_topic = google_pubsub_topic.topic.name
